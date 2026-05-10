@@ -1,0 +1,14 @@
+# This is a Dockerfile purely for a Dev env. 
+
+#Define the base image
+FROM node:lts-alpine
+
+WORKDIR /app
+
+COPY ./package.json .
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
